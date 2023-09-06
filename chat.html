@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.div1, .div2 {
+  border: 2px solid green;
+  width: 380px;
+  margin: 100px; 
+}
+
+.S, .R {
+  width: 300px;
+}
+</style>
+<script>
+function Send(player) {
+  let mainTextarea = document.getElementById(player === 1 ? "t1" : "t2");
+  let otherTextarea = document.getElementById(player === 1 ? "t2" : "t1");
+
+  let message = mainTextarea.value;
+  otherTextarea.value = message;
+  mainTextarea.value = "";
+}
+</script>
+<title>Playing</title>
+</head>
+<body>
+<div class="div1">
+  <h1>Player 1</h1>
+  <textarea cols="5" rows="10" class="S" id="t1"></textarea>
+  <button onclick="Send(1)">Send</button> 
+  <p>write some message in textarea and send player 2</p>
+</div>
+
+<div class="div2">
+  <h1>Player 2</h1>
+  <textarea cols="5" rows="10" class="R" id="t2"></textarea>
+  <button onclick="Send(2)">Send</button>
+  <p>write some message in textarea and send player 1</p>
+</div>
+
+</body>
+</html>
